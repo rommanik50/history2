@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Князь Костянтин Острозький — Велич і Спадщина</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cinzel Decorative and Cormorant Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for medieval/cultural icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#f4ebd0',
+                        parchmentDark: '#e3d2ab',
+                        burgundy: {
+                            800: '#581823',
+                            900: '#3c0e16',
+                            950: '#23070b'
+                        },
+                        gold: {
+                            500: '#d4af37',
+                            600: '#b89728',
+                            400: '#e6ca65'
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['"Cinzel Decorative"', 'serif'],
+                        garamond: ['"Cormorant Garamond"', 'serif'],
+                        playfair: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #23070b;
+            color: #f4ebd0;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .parchment-texture {
+            background-color: #f4ebd0;
+            background-image: radial-gradient(#e3d2ab 15%, transparent 16%), radial-gradient(#e3d2ab 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            color: #2d1314;
+        }
+        .gold-border {
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        .gold-glow {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #23070b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b89728;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="selection:bg-gold-500 selection:text-burgundy-950">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-burgundy-950/90 backdrop-blur-md border-b border-gold-500/40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full border-2 border-gold-500 flex items-center justify-center bg-burgundy-900 shadow-lg">
+                        <i class="fas fa-chess-rook text-gold-500 text-lg"></i>
+                    </div>
+                    <span class="font-cinzel text-xl sm:text-2xl font-bold text-gold-500 tracking-wider gold-glow">ОСТРОЗЬКІ</span>
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden lg:flex items-center space-x-8 font-playfair text-lg">
+                    <a href="#home" class="text-parchment hover:text-gold-400 transition-colors">Головна</a>
+                    <a href="#biography" class="text-parchment hover:text-gold-400 transition-colors">Життєпис</a>
+                    <a href="#battles" class="text-parchment hover:text-gold-400 transition-colors">Величні перемоги</a>
+                    <a href="#culture" class="text-parchment hover:text-gold-400 transition-colors">Меценатство</a>
+                    <a href="#heritage" class="text-parchment hover:text-gold-400 transition-colors">Спадщина та Замки</a>
+                    <a href="#quiz" class="text-parchment hover:text-gold-400 transition-colors">Вікторина</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gold-500 focus:outline-none text-2xl p-2">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-burgundy-900 border-b border-gold-500 px-4 pt-2 pb-6 space-y-3 font-playfair text-lg">
+            <a href="#home" class="block text-parchment hover:text-gold-400 py-1 mobile-link">Головна</a>
+            <a href="#biography" class="block text-parchment hover:text-gold-400 py-1 mobile-link">Життєпис</a>
+            <a href="#battles" class="block text-parchment hover:text-gold-400 py-1 mobile-link">Величні перемоги</a>
+            <a href="#culture" class="block text-parchment hover:text-gold-400 py-1 mobile-link">Меценатство</a>
+            <a href="#heritage" class="block text-parchment hover:text-gold-400 py-1 mobile-link">Спадщина та Замки</a>
+            <a href="#quiz" class="block text-parchment hover:text-gold-400 py-1 mobile-link">Вікторина</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-burgundy-950 via-burgundy-900 to-burgundy-950">
+        <!-- Decorative background glow and elements -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 py-16">
+            <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-gold-500/50 bg-burgundy-900/60 backdrop-blur-sm">
+                <span class="text-gold-400 font-garamond tracking-widest uppercase text-sm sm:text-base font-semibold">Великий Гетьман Литовський • Захисник Віри</span>
+            </div>
+            
+            <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-black text-gold-500 mb-6 leading-tight gold-glow">
+                Князь Костянтин Острозький
+            </h1>
+            
+            <p class="font-garamond text-xl sm:text-2xl md:text-3xl text-parchment max-w-3xl mx-auto mb-10 leading-relaxed italic">
+                «Непереможний полководець, який здобув 63 перемоги у битвах, меценат, державний діяч та будівничий української культури XVI століття».
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#biography" class="w-full sm:w-auto px-8 py-4 bg-gold-500 text-burgundy-950 font-playfair font-bold rounded-lg shadow-lg hover:bg-gold-400 transition-all transform hover:-translate-y-1 text-center">
+                    Дослідити Життєпис
+                </a>
+                <a href="#battles" class="w-full sm:w-auto px-8 py-4 border-2 border-gold-500 text-gold-400 font-playfair font-bold rounded-lg hover:bg-gold-500/10 transition-all text-center">
+                    Битва під Оршею
+                </a>
+            </div>
+
+            <!-- Quick Stats Scroll -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 border-t border-gold-500/30 pt-10">
+                <div class="p-4 bg-burgundy-900/40 rounded-lg border border-gold-500/20">
+                    <div class="font-cinzel text-3xl sm:text-4xl font-bold text-gold-500">63</div>
+                    <div class="text-sm text-parchment font-garamond mt-1">Виграні битви</div>
+                </div>
+                <div class="p-4 bg-burgundy-900/40 rounded-lg border border-gold-500/20">
+                    <div class="font-cinzel text-3xl sm:text-4xl font-bold text-gold-500">1514</div>
+                    <div class="text-sm text-parchment font-garamond mt-1">Тріумф під Оршею</div>
+                </div>
+                <div class="p-4 bg-burgundy-900/40 rounded-lg border border-gold-500/20">
+                    <div class="font-cinzel text-3xl sm:text-4xl font-bold text-gold-500">1576</div>
+                    <div class="text-sm text-parchment font-garamond mt-1">Острозька академія</div>
+                </div>
+                <div class="p-4 bg-burgundy-900/40 rounded-lg border border-gold-500/20">
+                    <div class="font-cinzel text-3xl sm:text-4xl font-bold text-gold-500">1581</div>
+                    <div class="text-sm text-parchment font-garamond mt-1">Острозька Біблія</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biography Section -->
+    <section id="biography" class="py-20 parchment-texture relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-burgundy-950 mb-4">Життєпис та Біографія</h2>
+                <div class="w-24 h-1 bg-burgundy-950 mx-auto mb-6"></div>
+                <p class="font-garamond text-xl text-burgundy-900 max-w-2xl mx-auto">
+                    Ключові віхи життя славетного князя, який визначав політику Східної Європи на зламі XV–XVI століть.
+                </p>
+            </div>
+
+            <!-- Timeline Grid / Interactive Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-parchmentDark/60 border-2 border-burgundy-950/30 p-6 sm:p-8 rounded-xl shadow-md hover:border-burgundy-950 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="font-cinzel text-2xl font-bold text-burgundy-950">~1460 рік</span>
+                        <div class="w-12 h-12 rounded-full bg-burgundy-950 text-gold-500 flex items-center justify-center text-xl">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-burgundy-900 mb-2">Походження та народження</h3>
+                    <p class="font-garamond text-lg text-burgundy-950/90 leading-relaxed">
+                        Костянтин Іванович Острозький народився в родині князя Івана Васильовича Острозького. Представник наймогутнішого русько-литовського князівського роду, що володів величезними землями на Волині та Київщині.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-parchmentDark/60 border-2 border-burgundy-950/30 p-6 sm:p-8 rounded-xl shadow-md hover:border-burgundy-950 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="font-cinzel text-2xl font-bold text-burgundy-950">1497 рік</span>
+                        <div class="w-12 h-12 rounded-full bg-burgundy-950 text-gold-500 flex items-center justify-center text-xl">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-burgundy-900 mb-2">Великий гетьман Литовський</h3>
+                    <p class="font-garamond text-lg text-burgundy-950/90 leading-relaxed">
+                        Отримав найвищу військовий посаду Великого князівства Литовського — Великого гетьмана. Це був перший випадок, коли православний князь очолив усю литовську армію.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-parchmentDark/60 border-2 border-burgundy-950/30 p-6 sm:p-8 rounded-xl shadow-md hover:border-burgundy-950 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="font-cinzel text-2xl font-bold text-burgundy-950">1500–1503</span>
+                        <div class="w-12 h-12 rounded-full bg-burgundy-950 text-gold-500 flex items-center justify-center text-xl">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-burgundy-900 mb-2">Полон та незламність</h3>
+                    <p class="font-garamond text-lg text-burgundy-950/90 leading-relaxed">
+                        Пройшовши через важку битву над Ведрошею, потрапив у московський полон. Князь відмовився зрадити присягу та перейти на службу до московського царя, після чого був засланий до Вологди. Згодом зумів утекти та повернутися на Батьківщину.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-parchmentDark/60 border-2 border-burgundy-950/30 p-6 sm:p-8 rounded-xl shadow-md hover:border-burgundy-950 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="font-cinzel text-2xl font-bold text-burgundy-950">1530 рік</span>
+                        <div class="w-12 h-12 rounded-full bg-burgundy-950 text-gold-500 flex items-center justify-center text-xl">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-burgundy-900 mb-2">Вічна пам'ять і спадок</h3>
+                    <p class="font-garamond text-lg text-burgundy-950/90 leading-relaxed">
+                        Помер у віці близько 70 років та був похований з великими почестями в Успенському соборі Києво-Печерської лаври. Його праведне життя і звитяги назавжди увійшли до пантеону національних героїв.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Battles Section: Battle of Orsha 1514 -->
+    <section id="battles" class="py-20 bg-burgundy-950 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-1 rounded-full border border-gold-500 bg-burgundy-900 mb-4">
+                    <span class="text-gold-400 font-garamond font-semibold uppercase text-sm tracking-wider">Тактичний геній</span>
+                </div>
+                <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-gold-500 mb-4 gold-glow">Битва під Оршею 1514 року</h2>
+                <div class="w-24 h-1 bg-gold-500 mx-auto mb-6"></div>
+                <p class="font-garamond text-xl text-parchment max-w-3xl mx-auto">
+                    Одна з найбільших битв Європи XVI століття. Менша за чисельністю об'єднана армія під командуванням князя Костянтина Острозького розгромила московське військо.
+                </p>
+            </div>
+
+            <!-- Interactive Battle Card Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Info column -->
+                <div class="bg-burgundy-900 border-2 border-gold-500/50 p-6 sm:p-8 rounded-xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-cinzel text-2xl text-gold-500 mb-4">Деталі зіткнення</h3>
+                        <ul class="space-y-4 font-garamond text-lg text-parchment">
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-calendar-alt text-gold-400 mt-1"></i>
+                                <span><strong>Дата:</strong> 8 вересня 1514 року</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-users text-gold-400 mt-1"></i>
+                                <span><strong>Сили Острозького:</strong> бл. 30 тисяч (русини, литовці, поляки, найманці)</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-chess-king text-gold-400 mt-1"></i>
+                                <span><strong>Московське військо:</strong> бл. 40–80 тисяч воїнів під командуванням І. Челядніна</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-trophy text-gold-400 mt-1"></i>
+                                <span><strong>Результат:</strong> Блискуча перемога завдяки хитрощам, засідці та маневру артилерії.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-gold-500/30">
+                        <p class="font-garamond italic text-gold-400 text-center">
+                            «Ворог був заманблений під прицільний вогонь гармат та знищений у контратаці важкої кінноти».
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Interactive Strategy Simulator / Visual Map -->
+                <div class="lg:col-span-2 bg-burgundy-900/80 border-2 border-gold-500 p-6 sm:p-8 rounded-xl flex flex-col justify-between shadow-2xl relative">
+                    <div class="absolute top-4 right-4 bg-gold-500/10 border border-gold-500 text-gold-400 px-3 py-1 rounded text-xs font-cinzel">
+                        Інтерактивна схема маневру
+                    </div>
+                    
+                    <h3 class="font-cinzel text-2xl text-gold-500 mb-4">Хід битви: Крок за кроком</h3>
+                    
+                    <div id="battle-step-content" class="min-h-[180px] font-garamond text-xl text-parchment mb-6 transition-all duration-300">
+                        <!-- Content updated by JS -->
+                    </div>
+
+                    <!-- Steps controls -->
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2 justify-center" id="battle-steps-buttons">
+                            <button onclick="setBattleStep(0)" class="battle-btn px-4 py-2 bg-gold-500 text-burgundy-950 font-playfair font-bold rounded text-sm transition-all shadow">1. Шикування та позиції</button>
+                            <button onclick="setBattleStep(1)" class="battle-btn px-4 py-2 bg-burgundy-950 text-gold-400 border border-gold-500 font-playfair font-bold rounded text-sm transition-all shadow">2. Маневр та пастка</button>
+                            <button onclick="setBattleStep(2)" class="battle-btn px-4 py-2 bg-burgundy-950 text-gold-400 border border-gold-500 font-playfair font-bold rounded text-sm transition-all shadow">3. Вирішальний удар</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patronage and Culture Section -->
+    <section id="culture" class="py-20 parchment-texture relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-burgundy-950 mb-4">Меценатство та Культура</h2>
+                <div class="w-24 h-1 bg-burgundy-950 mx-auto mb-6"></div>
+                <p class="font-garamond text-xl text-burgundy-900 max-w-2xl mx-auto">
+                    Князь Костянтин Острозький та його нащадки стали справжніми архітекторами «Острозького культурного ренесансу».
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Academy -->
+                <div class="bg-parchmentDark/80 border-2 border-burgundy-950/40 p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-burgundy-950 text-gold-500 rounded-lg flex items-center justify-content text-2xl mb-6 mx-auto items-center justify-center">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold text-burgundy-950 text-center mb-3">Острозька академія</h3>
+                        <p class="font-garamond text-lg text-burgundy-900/90 leading-relaxed">
+                            Перший вищий навчальний заклад Східної Європи (колегіум), заснований нащадками князя. Тут вивчали «сім вільних наук», грецьку, латинську та церковнослов'янську мови.
+                        </p>
+                    </div>
+                    <div class="mt-6 text-center text-sm font-cinzel text-burgundy-950 font-bold uppercase tracking-wider">
+                        Осередок просвіти
+                    </div>
+                </div>
+
+                <!-- Printing Press -->
+                <div class="bg-parchmentDark/80 border-2 border-burgundy-950/40 p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-burgundy-950 text-gold-500 rounded-lg flex items-center justify-content text-2xl mb-6 mx-auto items-center justify-center">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold text-burgundy-950 text-center mb-3">Острозька друкарня</h3>
+                        <p class="font-garamond text-lg text-burgundy-900/90 leading-relaxed">
+                            Спільно з першодрукарем Іваном Федоровим тут було створено легендарний «Буквар» (1574) та величну «Острозьку Біблію» (1581) — перше повне друковане видання всіх книг Святого Письма церковнослов'янською мовою.
+                        </p>
+                    </div>
+                    <div class="mt-6 text-center text-sm font-cinzel text-burgundy-950 font-bold uppercase tracking-wider">
+                        Джерело слова
+                    </div>
+                </div>
+
+                <!-- Churches & Castles -->
+                <div class="bg-parchmentDark/80 border-2 border-burgundy-950/40 p-6 rounded-xl shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-burgundy-950 text-gold-500 rounded-lg flex items-center justify-content text-2xl mb-6 mx-auto items-center justify-center">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold text-burgundy-950 text-center mb-3">Храми та Фортеці</h3>
+                        <p class="font-garamond text-lg text-burgundy-900/90 leading-relaxed">
+                            Фінансування будівництва неприступних замків (Острозького, Дубенського) та православних храмів, які захищали віру та кордони від нападів ординців.
+                        </p>
+                    </div>
+                    <div class="mt-6 text-center text-sm font-cinzel text-burgundy-950 font-bold uppercase tracking-wider">
+                        Мури вічності
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heritage & Castles Gallery Section -->
+    <section id="heritage" class="py-20 bg-burgundy-950 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-gold-500 mb-4 gold-glow">Архітектурна спадщина Острозьких</h2>
+                <div class="w-24 h-1 bg-gold-500 mx-auto mb-6"></div>
+                <p class="font-garamond text-xl text-parchment max-w-2xl mx-auto">
+                    Величні твердині, що зберегли дух середньовічного українського князівства.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Castle 1 -->
+                <div class="bg-burgundy-900 border border-gold-500/40 rounded-xl overflow-hidden shadow-xl hover:border-gold-500 transition-all group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/3c0e16/d4af37?text=%D0%9E%D1%81%D1%82%D1%80%D0%BE%D0%B7%D1%8C%D0%BA%D0%B8%D0%B9+%D0%B7%D0%B0%D0%BC%D0%BE%D0%BA" alt="Острозький замок" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/581823/f4ebd0?text=Ostrog+Castle'">
+                        <div class="absolute top-3 left-3 bg-burgundy-950/80 px-3 py-1 rounded text-gold-400 font-cinzel text-xs border border-gold-500/30">
+                            м. Острог
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-gold-500 mb-2">Острозький замок (Мурована Башта)</h3>
+                        <p class="font-garamond text-parchment text-lg leading-relaxed">
+                            Родинне гніздо князів на пагорбі над річкою Горинь. Включає унікальну Надбрамну (Татарську) башту та Богоявленський собор.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Castle 2 -->
+                <div class="bg-burgundy-900 border border-gold-500/40 rounded-xl overflow-hidden shadow-xl hover:border-gold-500 transition-all group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/3c0e16/d4af37?text=%D0%94%D1%83%D0%B1%D0%B5%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D0%B9+%D0%B7%D0%B0%D0%BC%D0%BE%D0%BA" alt="Дубенський замок" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/581823/f4ebd0?text=Dubno+Castle'">
+                        <div class="absolute top-3 left-3 bg-burgundy-950/80 px-3 py-1 rounded text-gold-400 font-cinzel text-xs border border-gold-500/30">
+                            м. Дубно
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-gold-500 mb-2">Дубенський замок</h3>
+                        <p class="font-garamond text-parchment text-lg leading-relaxed">
+                            Неприступна фортеця князів Острозьких та Любомирських, яка за століття не була взята жодним штурмом завдяки потужним бастіонам і водам річки Іква.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Castle 3 -->
+                <div class="bg-burgundy-900 border border-gold-500/40 rounded-xl overflow-hidden shadow-xl hover:border-gold-500 transition-all group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/3c0e16/d4af37?text=%D0%9A%D0%B8%D1%94%D0%B2%D0%BE-%D0%9F%D0%B5%D1%87%D0%B5%D1%80%D1%81%D1%8C%D0%BA%D0%B0+%D0%BB%D0%B0%D3%9B%D1%80%D0%B0" alt="Лавра" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/581823/f4ebd0?text=Lavra+Kyiv'">
+                        <div class="absolute top-3 left-3 bg-burgundy-950/80 px-3 py-1 rounded text-gold-400 font-cinzel text-xs border border-gold-500/30">
+                            м. Київ
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-bold text-gold-500 mb-2">Успенський собор Лаври</h3>
+                        <p class="font-garamond text-parchment text-lg leading-relaxed">Місце спочинку князя Костянтина Івановича. Князь щедро опікувався Києво-Печерським монастирем, фінансуючи його відбудову та оздоблення.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="py-20 parchment-texture relative">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-burgundy-950 mb-3">Вікторина: Перевір свої знання</h2>
+                <p class="font-garamond text-xl text-burgundy-900">Дай відповіді на питання про князя Костянтина Острозького та спадщину його роду.</p>
+            </div>
+
+            <div id="quiz-container" class="bg-parchmentDark/90 border-2 border-burgundy-950 p-6 sm:p-8 rounded-2xl shadow-xl">
+                <!-- Question card injected by JS -->
+                <div id="quiz-question-area"></div>
+                <div id="quiz-options-area" class="mt-6 space-y-3"></div>
+                <div id="quiz-feedback" class="mt-6 font-garamond text-xl font-semibold hidden"></div>
+                <div class="mt-8 flex justify-between items-center pt-4 border-t border-burgundy-950/20">
+                    <span id="quiz-progress" class="font-cinzel text-burgundy-950 text-sm">Питання 1 з 4</span>
+                    <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-6 py-2 bg-burgundy-950 text-gold-500 font-playfair font-bold rounded shadow hover:bg-burgundy-900 transition-all">
+                        Наступне питання
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Results Screen -->
+            <div id="quiz-results" class="hidden bg-parchmentDark/90 border-2 border-burgundy-950 p-8 rounded-2xl shadow-xl text-center">
+                <h3 class="font-cinzel text-3xl font-bold text-burgundy-950 mb-4">Результати вікторини</h3>
+                <div id="quiz-score-text" class="font-garamond text-2xl text-burgundy-900 mb-6"></div>
+                <button onclick="restartQuiz()" class="px-8 py-3 bg-burgundy-950 text-gold-500 font-playfair font-bold rounded-lg shadow hover:bg-burgundy-900 transition-all">
+                    Пройти знову
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-burgundy-950 text-parchment py-12 border-t border-gold-500/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <div class="w-8 h-8 rounded-full border border-gold-500 flex items-center justify-center bg-burgundy-900">
+                    <i class="fas fa-chess-rook text-gold-500 text-sm"></i>
+                </div>
+                <span class="font-cinzel text-lg font-bold text-gold-500 tracking-wider">КНЯЗІ ОСТРОЗЬКІ</span>
+            </div>
+            <p class="font-garamond text-parchment/80 text-lg mb-6 max-w-xl mx-auto">
+                Збережемо історичну пам'ять про видатних діячів української землі. Спадщина, яка надихає століттями.
+            </p>
+            <div class="text-xs font-garamond text-gold-500/60">
+                &copy; 2026 Історичний портал. Всі права на славну історію захищені вічністю.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Battle of Orsha Interactive Steps
+        const battleSteps = [
+            {
+                title: "1. Шикування та початкові позиції",
+                text: "Князь Костянтин Острозький майстерно розташував свої сили перед річкою Крапивною. Частину війська та артилерію було ретельно замасковано в лісі. Коли московське військо під командуванням Челядніна почало переправлятися через річку, Острозький дозволив їм безперешкодно вийти на протилежний берег."
+            },
+            {
+                title: "2. Маневр та несправжній відступ",
+                text: "Після переправи частини московських сил, легка кіннота союзників здійснила імітацію відступу. Засліплений удаваною перемогою противник кинувся у загальну атаку, щільно заповнивши простір перед українсько-литовськими позиціями та потрапивши до розставленої тактичної пастки."
+            },
+            {
+                title: "3. Вирішальний удар артилерії та контратака",
+                text: "Коли ворог підійшов на мінімальну дистанцію, прихована артилерія відкрила нищівний вогонь прямо в гущу наступаючих. Негайно після цього важка кіннота та резерви під особистим керівництвом князя Острозького завдали нищівного флангового удару, змусивши ворога до втечі та розгрому."
+            }
+        ];
+
+        function setBattleStep(index) {
+            const contentDiv = document.getElementById('battle-step-content');
+            const buttons = document.querySelectorAll('.battle-btn');
+            
+            contentDiv.innerHTML = `
+                <h4 class="font-playfair text-xl font-bold text-gold-400 mb-2">${battleSteps[index].title}</h4>
+                <p>${battleSteps[index].text}</p>
+            `;
+
+            buttons.forEach((btn, idx) => {
+                if (idx === index) {
+                    btn.className = "battle-btn px-4 py-2 bg-gold-500 text-burgundy-950 font-playfair font-bold rounded text-sm transition-all shadow";
+                } else {
+                    btn.className = "battle-btn px-4 py-2 bg-burgundy-950 text-gold-400 border border-gold-500 font-playfair font-bold rounded text-sm transition-all shadow";
+                }
+            });
+        }
+
+        // Initialize first battle step on load
+        window.addEventListener('DOMContentLoaded', () => {
+            setBattleStep(0);
+            loadQuizQuestion();
+        });
+
+        // Quiz Data
+        const quizQuestions = [
+            {
+                question: "Яку найвищу військову посаду у Великому князівстві Литовському обіймав князь Костянтин Острозький?",
+                options: ["Великий гетьман Литовський", "Кольнський воєвода", "Великий канцлер", "Гетьман Запорозького козацтва"],
+                correct: 0
+            },
+            {
+                question: "У якому році відбулася славетна Битва під Оршею?",
+                options: ["1410 рік", "1514 рік", "1569 рік", "1648 рік"],
+                correct: 1
+            },
+            {
+                question: "Яку видатну книгу було видано в Острозі у 1581 році?",
+                options: ["Пересопницьке євангеліє", "Острозька Біблія", "Кобзар", "Лексикон словенороський"],
+                correct: 1
+            },
+            {
+                question: "Де поховано князя Костянтина Івановича Острозького?",
+                options: ["У Дубенському замку", "У Військовому соборі у Вільнюсі", "В Успенському соборі Києво-Печерської лаври", "У стінах Острозької академії"],
+                correct: 2
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        function loadQuizQuestion() {
+            answered = false;
+            const q = quizQuestions[currentQuestion];
+            document.getElementById('quiz-progress').innerText = `Питання ${currentQuestion + 1} з ${quizQuestions.length}`;
+            document.getElementById('quiz-question-area').innerHTML = `
+                <h3 class="font-playfair text-2xl font-bold text-burgundy-950">${q.question}</h3>
+            `;
+            
+            let optionsHtml = '';
+            q.options.forEach((opt, idx) => {
+                optionsHtml += `
+                    <button onclick="checkQuizAnswer(${idx})" class="quiz-option-btn w-full text-left p-4 rounded-lg bg-parchment border-2 border-burgundy-950/30 hover:border-burgundy-950 font-garamond text-xl text-burgundy-950 transition-all">
+                        ${opt}
+                    </button>
+                `;
+            });
+            document.getElementById('quiz-options-area').innerHTML = optionsHtml;
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-next-btn').classList.add('hidden');
+        }
+
+        function checkQuizAnswer(selectedIdx) {
+            if (answered) return;
+            answered = true;
+
+            const q = quizQuestions[currentQuestion];
+            const optionButtons = document.querySelectorAll('.quiz-option-btn');
+            const feedbackDiv = document.getElementById('quiz-feedback');
+
+            if (selectedIdx === q.correct) {
+                score++;
+                optionButtons[selectedIdx].classList.add('bg-green-700', 'text-white', 'border-green-900');
+                feedbackDiv.innerText = "Правильно! Чудове знання історії.";
+                feedbackDiv.className = "mt-6 font-garamond text-xl font-semibold text-green-900";
+            } else {
+                optionButtons[selectedIdx].classList.add('bg-red-800', 'text-white', 'border-red-950');
+                optionButtons[q.correct].classList.add('bg-green-700', 'text-white', 'border-green-900');
+                feedbackDiv.innerText = `Неправильно. Правильна відповідь: ${q.options[q.correct]}`;
+                feedbackDiv.className = "mt-6 font-garamond text-xl font-semibold text-red-900";
+            }
+
+            feedbackDiv.classList.remove('hidden');
+
+            if (currentQuestion < quizQuestions.length - 1) {
+                document.getElementById('quiz-next-btn').classList.remove('hidden');
+            } else {
+                document.getElementById('quiz-next-btn').innerText = "Подивитися результат";
+                document.getElementById('quiz-next-btn').classList.remove('hidden');
+            }
+        }
+
+        function nextQuizQuestion() {
+            currentQuestion++;
+            if (currentQuestion < quizQuestions.length) {
+                loadQuizQuestion();
+            } else {
+                showQuizResults();
+            }
+        }
+
+        function showQuizResults() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-results').classList.remove('hidden');
+            document.getElementById('quiz-score-text').innerText = `Ви відповіли правильно на ${score} з ${quizQuestions.length} питань!`;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('quiz-results').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('quiz-next-btn').innerText = "Наступне питання";
+            loadQuizQuestion();
+        }
+    </script>
+</body>
+</html>
